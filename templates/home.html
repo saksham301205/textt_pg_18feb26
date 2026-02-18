@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plagiarism Finder App</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff0f5; /* Light pink */
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            background-color: #fff8c6; /* Butter yellow */
+            padding: 70px;
+            width: 650px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 44px;
+            margin-bottom: 50px;
+            color: #2d2d2d;
+        }
+
+        .file-group {
+            margin-bottom: 45px;
+            text-align: left;  /* aligns button under the S */
+        }
+
+        label {
+            display: block;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        input[type="file"] {
+            font-size: 20px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 40px auto 0 auto;
+            background: #ff7aa2;
+            color: white;
+            border: none;
+            padding: 18px 55px;
+            font-size: 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: #ff4f81;
+            transform: scale(1.05);
+        }
+
+        h2 {
+            margin-top: 35px;
+            font-size: 30px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Plagiarism Finder App</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <div class="file-group">
+                <label>Select First File</label>
+                <input type="file" name="f1">
+            </div>
+
+            <div class="file-group">
+                <label>Select Second File</label>
+                <input type="file" name="f2">
+            </div>
+
+            <input type="submit" value="Check Plagiarism">
+        </form>
+
+        <h2>{{ msg }}</h2>
+    </div>
+</body>
+</html>
