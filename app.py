@@ -1,6 +1,7 @@
 from flask import *
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import os
 
 app = Flask(__name__)
 
@@ -12,9 +13,6 @@ def home():
 
         s1 = f1.read().decode("utf-8").lower()
         s2 = f2.read().decode("utf-8").lower()
-
-        print(s1)
-        print(s2)
 
         texts = [s1, s2]
         cv = CountVectorizer()
@@ -28,10 +26,12 @@ def home():
         elif score > 40:
             msg = "medium plag"
         else:
-            msg = "neglible"
+            msg = "negligible"
 
         return render_template("home.html", msg=msg)
     else:
         return render_template("home.html")
 
-app.run(debug=True, use_reloader=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
